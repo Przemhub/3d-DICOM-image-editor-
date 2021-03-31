@@ -4,8 +4,8 @@
 Edytor markerów dla obrazów trójwymiarowych w odcieniach szarości odczytywanych z plików typu DICOM.
 
 ## Funkcjonalności:
--umożliwia zmianę stron obrazu przy pomocy kółka myszki, strzałek klawiatury oraz rysowanie swobodne linii markerów z użyciem myszki jako linii o dowolnym kształcie wewnątrz każdej strony.
--zwraca tablice współrzędnych (x,y,z) dla wszystkich linii markerów rysowanych przy pojedynczym wciśnięciu lewego przycisku myszki.
+- umożliwia zmianę stron obrazu przy pomocy kółka myszki, strzałek klawiatury oraz rysowanie swobodne linii markerów z użyciem myszki jako linii o dowolnym kształcie wewnątrz każdej strony.
+- zwraca tablice współrzędnych (x,y,z) dla wszystkich linii markerów rysowanych przy pojedynczym wciśnięciu lewego przycisku myszki.
 - rozróżnia co najmniej 2 typy markerów ( niebieski i czerwoni) odpowiadające zaznaczaniu podłoża i obiektu zainteresowania. 
 - Kliknięcie prawym klawiszem myszki powinno usuwać w całości pojedynczą linię markera, którą pokazuje kursor myszy. 
 - Zapisane dane markerów załadowywane są do edytora przy jego kolejnym użyciu i ponownie edytowane. 
