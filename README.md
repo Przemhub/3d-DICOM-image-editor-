@@ -1,8 +1,9 @@
 
+# Edytor obrazów 3d DICOM
 
 Edytor markerów dla obrazów trójwymiarowych w odcieniach szarości odczytywanych z plików typu DICOM.
 
-Funkcjonalności:
+## Funkcjonalności:
 -umożliwia zmianę stron obrazu przy pomocy kółka myszki, strzałek klawiatury oraz rysowanie swobodne linii markerów z użyciem myszki jako linii o dowolnym kształcie wewnątrz każdej strony.
 -zwraca tablice współrzędnych (x,y,z) dla wszystkich linii markerów rysowanych przy pojedynczym wciśnięciu lewego przycisku myszki.
 - rozróżnia co najmniej 2 typy markerów ( niebieski i czerwoni) odpowiadające zaznaczaniu podłoża i obiektu zainteresowania. 
@@ -10,7 +11,7 @@ Funkcjonalności:
 - Zapisane dane markerów załadowywane są do edytora przy jego kolejnym użyciu i ponownie edytowane. 
  
  
-Zasoby:
+## Zasoby:
 
 Edytor został zrealizowany za pomocą języka Python:
 
@@ -32,7 +33,7 @@ Oprogramowanie, użyte do realizacji projektu:
 
 
 
-Wygląd i funkcjonalność:
+## Wygląd i funkcjonalność:
 
 ![Zdjecie](https://media.discordapp.net/attachments/597512546504671234/826755092635975730/obszary.png)
 
@@ -57,7 +58,7 @@ Zakładka ‘File’ zawiera 4 przyciski:
 
 
 
-Elementy interfejsu:
+## Elementy interfejsu:
 
 - Slider po lewo – zmiana warstwy (również może być wykorzystane kółko myszki)
 
@@ -71,7 +72,7 @@ Elementy interfejsu:
 
 - Status – zawiera informację o obecnie wybranej warstwie i pozycji kursora myszki
 
-Instrukcja:
+## Instrukcja:
 
 Otwieramy plik za pomocą przycisku File -> Open lub przeciągając plik z eksploratora do programu (openFileNameDialog() lub dragEnterEvent() + dropEvent()).
 
@@ -85,88 +86,86 @@ Po dodaniu wszystkich markerów możemy zapisać zmiany do pliku json za pomocą
 
 
 
-Klasy i funkcję:
-
-
+## Klasy i funkcję:
 
 Klasa MainWindow – zawiera funkcje obsługujące okna dialogowe:
 
-· closeEvent() – zamykanie aplikacji
+- closeEvent() – zamykanie aplikacji
 
-· openFileNameDialog() – otwieranie plików
+- openFileNameDialog() – otwieranie plików
 
-· loadFileDialog() – otwieranie pliku json
+- loadFileDialog() – otwieranie pliku json
 
-· saveFileDialog() – zapisywanie zmian do pliku json
+- saveFileDialog() – zapisywanie zmian do pliku json
 
 
 
 Klasa MainWidget – zawiera funkcje obsługujące wybór markerów
 
-· changeImage(filename) – wywołanie funkcji changeImage() z klasy ImageWidget
+- changeImage(filename) – wywołanie funkcji changeImage() z klasy ImageWidget
 
-· objectMarker() – ustawianie typu markera objectMarker
+- objectMarker() – ustawianie typu markera objectMarker
 
-· baseMakrer() - ustawianie typu markera baseMarker
+- baseMakrer() - ustawianie typu markera baseMarker
 
 
 
 Klasa ImageWidget - zawiera funkcje obsługujące rysowanie markerów
 
-· valueChange() – odczyt danych ze slidera i zmiana warstwy
+- valueChange() – odczyt danych ze slidera i zmiana warstwy
 
-· valueChangePrecision() - odczyt danych ze slidera i zmiana precyzji rysowania
+- valueChangePrecision() - odczyt danych ze slidera i zmiana precyzji rysowania
 
-· updateImage() – odświeżanie obrazku i statusu
+- updateImage() – odświeżanie obrazku i statusu
 
-· paintEvent() – pozwala rysować na obrazku
+- paintEvent() – pozwala rysować na obrazku
 
-· wheelEvent() – obsługa kółka myszki dla zmiany warstwy
+- wheelEvent() – obsługa kółka myszki dla zmiany warstwy
 
-· mouseMoveEvent() – obsługa przemieszczenia kursora myszki, rysowania i usuwania markerów
+- mouseMoveEvent() – obsługa przemieszczenia kursora myszki, rysowania i usuwania markerów
 
-· resizeEvent() – obsługa zmiany rozmiary okna programu
+- resizeEvent() – obsługa zmiany rozmiary okna programu
 
-· dragEnterEvent() – decyduje czy najeżdżamy na aplikację myszką z plikiem, czy bez pliku
+- dragEnterEvent() – decyduje czy najeżdżamy na aplikację myszką z plikiem, czy bez pliku
 
-· dropEvent() – obsługa otwierania pliku przez przeciągnięcie pliku z eksploratora plików do programu
+- dropEvent() – obsługa otwierania pliku przez przeciągnięcie pliku z eksploratora plików do programu
 
-· mousePressEvent() – obsługa wciskania przycisków myszki oraz ustawianie startowych współrzędnych dla rysowania
+- mousePressEvent() – obsługa wciskania przycisków myszki oraz ustawianie startowych współrzędnych dla rysowania
 
-· mouseReleaseEvent() – obsługa … przycisków myszki oraz dopisywanie markerów do listy
+- mouseReleaseEvent() – obsługa … przycisków myszki oraz dopisywanie markerów do listy
 
-· changeImage(filename) – zmiana obrazku oraz niezbędne zmiany wartości zmiennych przy zmianie obrazku
+- changeImage(filename) – zmiana obrazku oraz niezbędne zmiany wartości zmiennych przy zmianie obrazku
 
-· get_line(start, end) – połączenie punktów za pomocą algorytmu Bresenhama
+- get_line(start, end) – połączenie punktów za pomocą algorytmu Bresenhama
 
-· mouse(x, y, z) – dodanie punktów markerów do listy
+- mouse(x, y, z) – dodanie punktów markerów do listy
 
-· drawOnImage() – rysowanie markera
+- drawOnImage() – rysowanie markera
 
-· clearOutput() – czyszczenie listy punktów markerów
+- clearOutput() – czyszczenie listy punktów markerów
 
 
 
-Testy
+## Testy
 
 Dokładność rysowania markerów przy różnych wartościach Precision:
 
-MAX:
+### MAX:
 
 
 ![Max](https://media.discordapp.net/attachments/597512546504671234/826757167507439666/max.png)
 
-MID:
+### MID:
 
 ![Mid](https://media.discordapp.net/attachments/597512546504671234/826757169390026762/mid.png)
 
 
-MIN:
+### MIN:
 
 
 ![Min](https://media.discordapp.net/attachments/597512546504671234/826757161178759181/min.png)
 
-Podsumowanie
+## Podsumowanie
 
 Dla realizowania zadania użyto języka Python oraz różnych bibliotek: PyQT5 do interfejsu użytkownika, pydicom do pracy z plikami DICOM itd. Udało nam się w termonach zrealizować wszystko, co zaplanowaliśmy w harmonogramie, wynik końcowy spełnia wszystkie zagadnienia, które otrzymaliśmy w zadaniu.
 
@@ -174,13 +173,13 @@ Możliwy rozwój w przyszłości
 
 Jako kolejne korki rozwoju tego projektu można zaproponować:
 
-· rozszerzenie ustawień markerów do zmiany koloru i grubości markerów
+- rozszerzenie ustawień markerów do zmiany koloru i grubości markerów
 
-· obsługa innych formatów plików
+- obsługa innych formatów plików
 
-· obsługa innych sposobów zapisywania i przechowywania informacji
+- obsługa innych sposobów zapisywania i przechowywania informacji
 
-· optymizacja interfejsu użytkownika
+- optymizacja interfejsu użytkownika
 
 
 Bibliografia: http://www.roguebasin.com/index.phptitle=Bresenham%27s_Line_Algorithm#Python - zastosowanie algorytmu Bresenhama w różnych językach http://0x80.pl/articles/bresenham.html - artykuł na temat teorii algorytmu Bresenhama
